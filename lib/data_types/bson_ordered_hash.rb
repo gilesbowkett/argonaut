@@ -1,4 +1,3 @@
-# FIXME: these probably belong in some kind of /presenters dir
 class BSON::OrderedHash
 
   # this is an instance method, not a class method, which breaks the pattern. it does this because
