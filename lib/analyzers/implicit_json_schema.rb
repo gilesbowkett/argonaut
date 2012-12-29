@@ -37,7 +37,7 @@ class ImplicitJSONSchema
 
       # if both schema ascribe different data types to the same attribute? problem
       if @attributes[attribute] && value != @attributes[attribute]
-        raise "error: schemas don't match on attribute #{attribute}"
+        ap "WARNING: schemas don't match on attribute #{attribute}"
       end
     end
 
