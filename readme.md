@@ -44,8 +44,8 @@ for instance, if you keep your mangos in Mongo, here's what that file might look
 
 note that if your file looks exactly like this then your project is doomed.
 
-notes from original version
----------------------------
+mongo rake tasks
+----------------
 
 This code started life as part of an ETL system for transforming Mongo data into SQL.
 
