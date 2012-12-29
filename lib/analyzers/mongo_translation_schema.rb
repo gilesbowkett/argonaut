@@ -1,3 +1,6 @@
+# FIXME: this basically works for flat-file JSON equally well,
+# so both class and file need new name.
+
 class MongoTranslationSchema
 
   attr_accessor :attributes
@@ -61,6 +64,7 @@ class MongoTranslationSchema
   # attributes_and_values - a Hash. usually a Mongo object from Mongomatic
   #
   def classify_attribute_value(attributes_and_values)
+    raise "collection might be empty" unless attributes_and_values
     attributes_and_values.each do |attribute, value|
       attribute = "mongo_id" if "_id" == attribute
       value = case value
