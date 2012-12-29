@@ -34,6 +34,16 @@ currently this code assumes you want to read JSON from Mongo. hoping to change t
 but for now, to specify Mongo credentials, put a file called `mongo.yml` at your
 top level.
 
+here's what that file might look like:
+
+    host: mongodb.example.com
+    port: 12345
+    database: mangos
+    user: mangofan12345
+    password: p4ssw0rd
+
+note that if your file looks exactly like this then your project is doomed.
+
 notes from original version
 ---------------------------
 
