@@ -11,6 +11,7 @@ gem 'standalone_migrations'
 # gratuitous dev shenanigans
 gem 'awesome_print'
 gem 'flyrb'
+gem 'pry'
 
 # mongo
 gem 'mongomatic'
