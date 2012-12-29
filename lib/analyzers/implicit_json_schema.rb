@@ -1,6 +1,3 @@
-# FIXME: this basically works for flat-file JSON equally well,
-# so both class and file need new name.
-
 class ImplicitJSONSchema
 
   attr_accessor :attributes
