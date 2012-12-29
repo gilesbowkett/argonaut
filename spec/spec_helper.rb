@@ -28,6 +28,7 @@ require File.here "/../lib/analyzers/schema_guesser"
 
 require File.here "/../lib/json_collections/random_mongo_objects"
 require File.here "/../lib/json_collections/parsed_json"
+require File.here "/../lib/json_collections/json_from_a_file"
 
 require File.here "/../lib/formatters/formatter"
 require File.here "/../lib/formatters/ascii_formatter"
