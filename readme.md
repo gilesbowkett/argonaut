@@ -34,7 +34,7 @@ currently this code assumes you want to read JSON from Mongo. hoping to change t
 but for now, to specify Mongo credentials, put a file called `mongo.yml` at your
 top level.
 
-here's what that file might look like:
+for instance, if you keep your mangos in Mongo, here's what that file might look like:
 
     host: mongodb.example.com
     port: 12345
@@ -51,11 +51,11 @@ This code started life as part of an ETL system for transforming Mongo data into
 
 It contains several Rake tasks related to that use case.
 
-`rake mongo:generate collection=muppets iterations=2000`
+`rake argonaut:mongo:generate collection=muppets iterations=2000`
 
 This Rake task creates a report analyzing 2000 records from the `muppets` collection. It presents its report in ASCII form, on the command line. It also creates a `MongoTranslator` file to automatically convert `muppets` data into `Muppet` classes. And it also creates a database migration to support the new `Muppet` class. (I'm not open-sourcing `MongoTranslator` yet, because I'm a little busy, so that stuff might go away.)
 
-`rake mongo:describe collection=muppets iterations=2000`
+`rake argonaut:mongo:describe collection=muppets iterations=2000`
 
 This Rake task performs the same analysis and presents an ASCII report in the terminal, but does not create model or migration files.
 
