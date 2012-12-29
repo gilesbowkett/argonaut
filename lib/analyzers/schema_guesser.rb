@@ -1,35 +1,20 @@
 class SchemaGuesser
 
-  def connect
-    config = YAML.load_file "mongo.yml"
+  attr_accessor :example, :json
 
-    @connection = Mongo::Connection.new config["host"], config["port"], :slave_ok => true
-    @database = @connection[config["database"]]
-    @database.authenticate(config["user"], config["password"])
+  # json really represents a collection of *parsed* JSON objects, as would be
+  # returned from Mongo or JSON.parse. FIXME: TomDoc.
+  def initialize(json = nil)
+    @json = json
   end
 
-  attr_accessor :example
-  attr_reader :collection
-
-  def collection=(name)
-    @collection = @database[name]
-    @example = nil # reset, because of memoization in #fields()
-  end
-
-  def random_element
-    # not under spec because it's really just a Mongo query. translated from:
-    # http://stackoverflow.com/questions/2824157/random-record-from-mongodb
-    @collection.find.limit(-1).skip(rand(@collection.count - 1)).next
-  end
-
-  # a shortcut because it happens a lot in the rake tasks
+  # a shortcut because it happens a lot in the rake tasks (100% legacy)
   def get_schema_from_random_element
-    raise "this Mongo collection is empty" if @collection.count == 0
-    classify_collection_attributes(random_element)
+    classify_collection_attributes(@json.next)
   end
 
   def fields
-    @example ||= random_element
+    @example ||= @json.next
     return false unless @example
     (@example.keys - ["_id"]).map &:to_sym
   end
@@ -40,8 +25,5 @@ class SchemaGuesser
     mongo_translation_schema
   end
 
-  def each &block
-    collection.find.each &block
-  end
 end
 
