@@ -15,6 +15,8 @@ class Formatter
     identify_stuff_to_create
   end
 
+  # FIXME: this next method should probably be in the schema object, not here
+
   # Internal - figure out what things you're going to need to make. The AsciiFormatter doesn't
   # need to create anything, but both the MigrationFormatter and the TranslatorModelFormatter
   # do. This is basically handling nested Mongo objects. It sets a Hash on the Formatter
@@ -24,7 +26,7 @@ class Formatter
   def identify_stuff_to_create
     @stuff_to_create = {@class_name => @schema}
     @schema.attributes.each do |attribute, value|
-      if value.class == BSON::OrderedHash
+      if [BSON::OrderedHash, Hash].include?(value.class)
         schema_guesser = SchemaGuesser.new # FIXME: singleton!
         # FIXME: make classify_etc a class method instead of instance?
         value["#{@class_name.to_s.singularize}_id"] = 1
