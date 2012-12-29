@@ -23,6 +23,18 @@ namespace :argonaut do
       ap MongoTranslationSchema.create_from_many(instances).attributes
     end
 
+    desc "this shows you partially-analyzed schemas"
+    task :wtf, [:filename] => [:filesystem_setup] do |task, args|
+
+      parsed = JSONFromAFile.load args.filename
+      @schema_guesser.json = parsed
+
+      parsed.each do |schemaless_object|
+        ap @schema_guesser.classify_collection_attributes(schemaless_object).attributes
+      end
+
+    end
+
   end
 end
 

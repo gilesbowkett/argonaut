@@ -12,6 +12,15 @@ how to analyze a flat file of json with argonaut
 
 `brake argonaut:filesystem:analyze["whatever.json"]`
 
+This is UNFINISHED. Doesn't work. Don't do it.
+
+wtf task
+--------
+
+`brake argonaut:filesystem:wtf["whatever.json"]`
+
+This will screendump ongoing object-by-object analyses. These analyses are incomplete and the point of the task is to debug them. May disappear, replaced by tests.
+
 what's an argonaut? is that some kind of ice cream?
 ---------------------------------------------------
 
