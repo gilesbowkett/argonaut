@@ -50,3 +50,12 @@ license
 
 MIT license.
 
+contributing
+------------
+
+For the next few weeks, you're way better off sending me an email or a tweet than using GitHub's built-in messaging systems, even pull requests, awesome though they are. Apologies!
+
+How you can reach me:
+
+<img src="http://s3.amazonaws.com/giles/headshots_080410/deep235.jpg">
+
