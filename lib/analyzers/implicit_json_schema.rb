@@ -1,7 +1,7 @@
 # FIXME: this basically works for flat-file JSON equally well,
 # so both class and file need new name.
 
-class MongoTranslationSchema
+class ImplicitJSONSchema
 
   attr_accessor :attributes
   def initialize(attributes = {})
@@ -24,7 +24,7 @@ class MongoTranslationSchema
 
     # input can be a Hash or a thing which has a Hash
     other_attributes = case other_schema
-      when MongoTranslationSchema
+      when ImplicitJSONSchema
         other_schema.attributes
       when Hash
         other_schema

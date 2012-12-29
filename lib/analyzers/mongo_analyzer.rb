@@ -18,7 +18,7 @@ class MongoAnalyzer
       instances << @schema_guesser.get_schema_from_next_element
     end
 
-    @options = {:schema => MongoTranslationSchema.create_from_many(instances),
+    @options = {:schema => ImplicitJSONSchema.create_from_many(instances),
                 :class_name => @collection}
   end
 

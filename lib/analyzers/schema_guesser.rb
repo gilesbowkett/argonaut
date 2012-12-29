@@ -20,9 +20,9 @@ class SchemaGuesser
   end
 
   def classify_collection_attributes(instance)
-    mongo_translation_schema = MongoTranslationSchema.new
-    mongo_translation_schema.classify_attribute_values(instance)
-    mongo_translation_schema
+    implicit_json_schema = ImplicitJSONSchema.new
+    implicit_json_schema.classify_attribute_values(instance)
+    implicit_json_schema
   end
 
 end

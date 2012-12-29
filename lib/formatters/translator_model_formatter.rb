@@ -47,7 +47,7 @@ end
 FOOTER
   end
 
-  # FIXME: practically everything which uses a MongoTranslationSchema goes straight into its
+  # FIXME: practically everything which uses an ImplicitJSONSchema goes straight into its
   # attributes hash. Law of Demeter. you probably just want MTS to be a Hash subclass or something.
   def column_names(schema)
     output =<<COLUMN_NAMES
