@@ -1,3 +1,4 @@
 .rvmrc
 mongo.yml
+Gemfile.lock
 
