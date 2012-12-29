@@ -37,10 +37,9 @@ top level.
 notes from original version
 ---------------------------
 
-This code started life as part of an ETL system for transforming Mongo data into SQL for
-analytics purposes.
+This code started life as part of an ETL system for transforming Mongo data into SQL.
 
-It contains several Rake tasks related to that use.
+It contains several Rake tasks related to that use case.
 
 `rake mongo:generate collection=muppets iterations=2000`
 
