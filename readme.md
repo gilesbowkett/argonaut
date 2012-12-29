@@ -43,7 +43,7 @@ This I will probably destroy. It's a more primitive analyzer which I wrote befor
 ruby-beautifier
 ---------------
 
-the code generation features of this library use this Ruby beautifier I found, which did not appear to be available as a gem. so it's included verbatim.
+the code generation features of this library use this Ruby beautifier I found, which did not appear to be available as a gem. so it's included as a git submodule.
 
 license
 -------
