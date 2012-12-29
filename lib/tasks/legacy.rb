@@ -49,50 +49,5 @@ namespace :mongo do
     puts AsciiFormatter.new(@options).format
   end
 
-  # FIXME: everything below here is legacy, and likely to disappear.
-
-  # oldest, legacy-est version
-  desc 'Describe existing Mongo collections'
-  task :investigate => :analysis_setup do
-
-    fields = @schema_guesser.fields
-    if fields
-      puts @collection + ": " + @schema_guesser.collection.count.to_s + " records"
-      ap fields
-
-      puts "random element from " + @collection
-      ap @schema_guesser.random_element
-
-      puts
-    end
-  end
-
-  desc "Basic analysis, from random element"
-  task :basic_random_analysis => :analysis_setup do
-    @random_element = @schema_guesser.random_element
-    @options = {:schema => @schema_guesser.get_schema_from_random_element,
-                :class_name => @collection}
-  end
-
-  desc 'Map Mongo collection fields to value types'
-  task :describe_collection_attributes => :basic_random_analysis do
-    puts AsciiFormatter.new(@options).format
-  end
-
-  desc 'generate migration from random Mongo element'
-  task :generate_migration_from_random_element => :basic_random_analysis do
-    puts MigrationFormatter.new(@options).format
-  end
-
-  desc 'generate translator model from random Mongo element'
-  task :generate_translator_model_from_random_element => :basic_random_analysis do
-    puts TranslatorModelFormatter.new(@options).format
-  end
-
-  desc 'generate translator model and migration'
-  task :generate_model_and_migration => [:describe_collection_attributes,
-                                         :generate_translator_model_from_random_element,
-                                         :generate_migration_from_random_element]
-
 end
 
