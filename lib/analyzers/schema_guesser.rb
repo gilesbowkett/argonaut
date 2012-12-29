@@ -9,7 +9,7 @@ class SchemaGuesser
   end
 
   # a shortcut because it happens a lot in the rake tasks (100% legacy)
-  def get_schema_from_random_element
+  def get_schema_from_next_element
     classify_collection_attributes(@json.next)
   end
 

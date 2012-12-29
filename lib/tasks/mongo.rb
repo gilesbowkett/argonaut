@@ -2,19 +2,19 @@ namespace :argonaut do
   namespace :mongo do
 
     desc 'Setup for Mongo analysis Rake tasks'
-    task :analysis_setup do
+    task :mongo_setup do
       @collection = ENV['collection']
       @schema_guesser = SchemaGuesser.new
       @schema_guesser.collection = @collection
     end
 
     desc "Thorough analysis, from any number of elements"
-    task :thorough_analysis => :analysis_setup do
+    task :thorough_analysis => :mongo_setup do
       iterations = ENV['iterations']
 
       instances = []
       iterations.to_i.times do
-        instances << @schema_guesser.get_schema_from_random_element
+        instances << @schema_guesser.get_schema_from_next_element
       end
 
       @options = {:schema => MongoTranslationSchema.create_from_many(instances),

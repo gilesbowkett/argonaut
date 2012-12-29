@@ -7,6 +7,11 @@ You might use it if you're facing a large Mongo collection and you want to find 
 
 I'm hoping to transform this from a `DESCRIBE TABLE` for Mongo into a `DESCRIBE TABLE` for JSON.
 
+how to analyze a flat file of json with argonaut
+------------------------------------------------
+
+`brake argonaut:filesystem:analyze["whatever.json"]`
+
 what's an argonaut? is that some kind of ice cream?
 ---------------------------------------------------
 
@@ -35,10 +40,6 @@ This Rake task creates a report analyzing 2000 records from the `muppets` collec
 `rake mongo:describe collection=muppets iterations=2000`
 
 This Rake task performs the same analysis and presents an ASCII report in the terminal, but does not create model or migration files.
-
-`rake mongo:investigate collection=users`
-
-This I will probably destroy. It's a more primitive analyzer which I wrote before the other tasks.
 
 ruby-beautifier
 ---------------
