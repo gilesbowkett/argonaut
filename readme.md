@@ -7,8 +7,8 @@ You might use it if you're facing a large Mongo collection and you want to find 
 
 I'm hoping to transform this from a `DESCRIBE TABLE` for Mongo into a `DESCRIBE TABLE` for JSON.
 
-what the fuck is an argonaut? is that some kind of ice cream?
--------------------------------------------------------------
+what's an argonaut? is that some kind of ice cream?
+---------------------------------------------------
 
 http://en.wikipedia.org/wiki/Argonauts
 
