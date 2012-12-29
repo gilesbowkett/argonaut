@@ -26,18 +26,18 @@ describe "schema guessing" do
       :updated_at => OptionalTimestamp
     })
 
-    @random_mongo_objects = RandomMongoObjects.new
-    @schema_guesser = SchemaGuesser.new(@random_mongo_objects)
+    @parsed_json = ParsedJson.new
+    @schema_guesser = SchemaGuesser.new(@parsed_json)
   end
 
   it "identifies fields, skipping Mongo's reserved _id field" do
-    @random_mongo_objects.stub(:next).and_return(@goblin_king_category)
+    @parsed_json.push(@goblin_king_category)
     @schema_guesser.fields.should == [:muppet_ids, :muppet_fan_user_ids, :created_at,
                                       :name, :private, :slug, :updated_at]
   end
 
   it "returns false when there are no examples" do
-    @random_mongo_objects.stub(:next).and_return(nil)
+    @parsed_json.push(nil)
     @schema_guesser.fields.should == false
   end
 
