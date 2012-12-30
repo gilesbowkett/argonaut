@@ -6,8 +6,6 @@ class MongoAnalyzer
     @collection = collection
     @random_mongo_objects.collection = @collection
 
-    @schema_guesser = SchemaGuesser.new
-
   end
 
   def analyze_repeatedly(iterations)

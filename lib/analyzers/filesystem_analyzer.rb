@@ -2,10 +2,6 @@
 
 class FileSystemAnalyzer
 
-  def initialize
-    @schema_guesser = SchemaGuesser.new
-  end
-
   def show_me_partially_analyzed_schemas(filename)
     parsed = JSONFromAFile.load filename
 
