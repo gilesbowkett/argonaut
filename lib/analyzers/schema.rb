@@ -74,7 +74,9 @@ module Argonaut
     #                         from Mongo via Mongomatic
     #
     def classify_attribute_value(attributes_and_values)
+
       raise "collection might be empty" unless attributes_and_values
+
       attributes_and_values.each do |attribute, value|
         attribute = "mongo_id" if "_id" == attribute
         value = case value
@@ -89,9 +91,12 @@ module Argonaut
           else
             value.class
         end
+
         @attributes[attribute.to_sym] = value
+
       end
     end
+
     alias :classify_attribute_values :classify_attribute_value
 
     def classify_array(name, array)

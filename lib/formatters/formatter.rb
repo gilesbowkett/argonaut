@@ -97,3 +97,4 @@ module Argonaut
 
   end
 end
+
