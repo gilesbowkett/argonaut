@@ -1,7 +1,7 @@
 module Argonaut
   class Schema
 
-    attr_accessor :attributes
+    attr_accessor :attributes, :parent_schema
     def initialize(attributes = {})
       @attributes = attributes
     end
@@ -20,6 +20,10 @@ module Argonaut
         schema.merge(instance)
         schema
       end
+    end
+
+    def belongs_to(parent_schema)
+      @parent_schema = parent_schema
     end
 
     # FIXME: this class often seems like it decorates Hash but should just

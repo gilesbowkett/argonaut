@@ -31,5 +31,11 @@ describe "schema guessing" do
     generated_schema = Schema.extract_from_json(@goblin_king_category)
     generated_schema.attributes.should == @schema.attributes
   end
+
+  it "belongs to another Schema" do
+    owned_schema = Schema.new
+    owned_schema.belongs_to @schema
+    owned_schema.parent_schema.should == @schema
+  end
 end
 
