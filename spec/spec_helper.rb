@@ -24,7 +24,6 @@ require File.here "/../lib/data_types/bson_object_id"
 require File.here "/../lib/data_types/bson_ordered_hash"
 
 require File.here "/../lib/analyzers/implicit_json_schema"
-require File.here "/../lib/analyzers/schema_guesser"
 
 require File.here "/../lib/json_collections/random_mongo_objects"
 require File.here "/../lib/json_collections/parsed_json"

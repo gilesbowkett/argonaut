@@ -93,7 +93,7 @@ class ImplicitJSONSchema
     elsif array.collect(&:class).uniq == [BSON::OrderedHash]
       ArrayOfMongoObjects
     elsif array.empty? && name =~ /.+_ids$/
-      # this one puts the "guess" in "schema_guesser"
+      # wild-ass guess, will obviously change (FIXME), only valid for Mongo use case
       ArrayOfMongoIds
     else
       Array
