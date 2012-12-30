@@ -36,7 +36,7 @@ class ImplicitJSONSchema
     other_attributes.each do |attribute, value|
       # if the other schema has a nil for an attribute, then throw that away, because
       # it means the attribute was never classified
-      unless value
+      if value.nil?
         other_attributes.delete(attribute)
         next
       end
