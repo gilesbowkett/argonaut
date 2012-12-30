@@ -30,17 +30,6 @@ describe "schema guessing" do
     @schema_guesser = SchemaGuesser.new(@parsed_json)
   end
 
-  it "identifies fields, skipping Mongo's reserved _id field" do
-    @parsed_json.push(@goblin_king_category)
-    @schema_guesser.fields.should == [:muppet_ids, :muppet_fan_user_ids, :created_at,
-                                      :name, :private, :slug, :updated_at]
-  end
-
-  it "returns false when there are no examples" do
-    @parsed_json.push(nil)
-    @schema_guesser.fields.should == false
-  end
-
   it "abstracts a likely schema from an existing element" do
     generated_schema = @schema_guesser.classify_collection_attributes(@goblin_king_category)
     generated_schema.attributes.should == @implicit_json_schema.attributes

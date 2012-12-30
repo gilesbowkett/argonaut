@@ -13,12 +13,6 @@ class SchemaGuesser
     classify_collection_attributes(@json.next)
   end
 
-  def fields
-    @example ||= @json.next
-    return false unless @example
-    (@example.keys - ["_id"]).map &:to_sym
-  end
-
   def classify_collection_attributes(instance)
     implicit_json_schema = ImplicitJSONSchema.new
     implicit_json_schema.classify_attribute_values(instance)
