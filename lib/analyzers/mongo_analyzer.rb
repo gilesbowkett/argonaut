@@ -7,7 +7,6 @@ class MongoAnalyzer
     @random_mongo_objects.collection = @collection
 
     @schema_guesser = SchemaGuesser.new
-    @schema_guesser.json = @random_mongo_objects
 
   end
 
