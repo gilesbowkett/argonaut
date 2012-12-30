@@ -3,7 +3,7 @@ namespace :argonaut do
 
     desc 'Setup for Mongo analysis Rake tasks'
     task :mongo_setup do
-      @mongo_analyzer = MongoAnalyzer.new(ENV['collection'])
+      @mongo_analyzer = Argonaut::MongoAnalyzer.new(ENV['collection'])
     end
 
     desc "Thorough analysis, from any number of elements"

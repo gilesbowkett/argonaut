@@ -34,3 +34,4 @@ require File.here "/../lib/formatters/ascii_formatter"
 require File.here "/../lib/formatters/migration_formatter"
 require File.here "/../lib/formatters/translator_model_formatter"
 
+include Argonaut

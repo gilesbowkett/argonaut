@@ -3,7 +3,7 @@ namespace :argonaut do
 
     desc 'Setup for filesystem Rake tasks'
     task :filesystem_setup do
-      @filesystem_analyzer = FileSystemAnalyzer.new
+      @filesystem_analyzer = Argonaut::FileSystemAnalyzer.new
     end
 
     desc "analyze the JSON in a file"
