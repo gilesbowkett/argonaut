@@ -1,5 +1,0 @@
-class SchemaGuesser
-
-
-end
-
