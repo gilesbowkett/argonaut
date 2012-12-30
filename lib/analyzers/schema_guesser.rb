@@ -8,14 +8,5 @@ class SchemaGuesser
     @json = json
   end
 
-  # a shortcut because it happens a lot in the rake tasks (100% legacy)
-  def get_schema_from_next_element
-    classify_collection_attributes(@json.next)
-  end
-
-  def classify_collection_attributes(instance)
-    ImplicitJSONSchema.classify_collection_attributes(instance)
-  end
-
 end
 

@@ -2,12 +2,12 @@ class MongoAnalyzer
 
   def initialize(collection)
 
-    random_from_mongo = RandomMongoObjects.new
+    @random_mongo_objects = RandomMongoObjects.new
     @collection = collection
-    random_from_mongo.collection = @collection
+    @random_mongo_objects.collection = @collection
 
     @schema_guesser = SchemaGuesser.new
-    @schema_guesser.json = random_from_mongo
+    @schema_guesser.json = @random_mongo_objects
 
   end
 
@@ -15,7 +15,7 @@ class MongoAnalyzer
 
     instances = []
     iterations.times do
-      instances << @schema_guesser.get_schema_from_next_element
+      instances << ImplicitJSONSchema.classify_collection_attributes(@random_mongo_objects.next)
     end
 
     @options = {:schema => ImplicitJSONSchema.create_from_many(instances),
