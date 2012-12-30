@@ -5,21 +5,23 @@ Argonaut analyzes Mongo collections and describes their contents for you. It's b
 
 You might use it if you're facing a large Mongo collection and you want to find out what the data looks like overall. Schemaless data stores give you no guarantees about how best to model them, or what data they contain, and that's information you might want to have.
 
-I'm hoping to transform this from a `DESCRIBE TABLE` for Mongo into a `DESCRIBE TABLE` for JSON.
+Likewise, API clients need to use domain logic which corresponds to whatever their app's about. Argonaut gives you an easy way to diagram (in code) the structure of any JSON APIs you consume.
+
+So I'm starting to transform this from a `DESCRIBE TABLE` for Mongo into a `DESCRIBE TABLE` for JSON.
 
 how to analyze a flat file of json with argonaut
 ------------------------------------------------
 
 `brake argonaut:filesystem:analyze["whatever.json"]`
 
-This is UNFINISHED. Doesn't work. Don't do it.
+This is UNFINISHED. Don't even fuck with it.
 
 wtf task
 --------
 
 `brake argonaut:filesystem:wtf["whatever.json"]`
 
-This will screendump ongoing object-by-object analyses. These analyses are incomplete and the point of the task is to debug them. May disappear, replaced by tests.
+This will screendump ongoing object-by-object analyses. These analyses are imperfect and the point of the task is to debug them. Starting to disappear, replaced by tests.
 
 what's an argonaut? is that some kind of ice cream?
 ---------------------------------------------------

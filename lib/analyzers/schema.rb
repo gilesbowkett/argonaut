@@ -6,9 +6,10 @@ module Argonaut
       @attributes = attributes
     end
 
-    def self.extract_from_json(instance)
+    def self.extract_from_json(instance, owning_class = nil)
       schema = new
       schema.classify_attribute_values(instance)
+      schema.belongs_to owning_class
       schema
     end
 
@@ -88,6 +89,8 @@ module Argonaut
             classify_array(attribute, value)
           when NilClass, BSON::OrderedHash
             value
+          when Hash
+            Schema.extract_from_json(value, attribute)
           else
             value.class
         end

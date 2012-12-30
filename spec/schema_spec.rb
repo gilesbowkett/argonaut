@@ -3,6 +3,7 @@ require 'spec_helper'
 describe "schema guessing" do
 
   before do
+    # FIXME: all this fixtures bullshit sucks pretty hard
     @goblin_king = { "_id" => BSON::ObjectId('4ed937da7a4f9f200e000037'),
                      "muppet_ids" => [],
                      "kidnapped_children_ids"=>
@@ -39,5 +40,13 @@ describe "schema guessing" do
     owned_schema.belongs_to @schema
     owned_schema.parent_schema.should == @schema
   end
+
+  it "deduces schemas contained within schemas" do
+    nested = {"foo" => "bar", "baz" => {"qu" => "ux"}}
+    extracted = Schema.extract_from_json(nested) # it's really extract_from_tree
+    extracted.attributes[:baz].should be_instance_of Schema
+  end
+
+  it "assigns belongs_to correctly when recursively analyzing schemas"
 end
 
