@@ -5,6 +5,12 @@ class ImplicitJSONSchema
     @attributes = attributes
   end
 
+  def self.classify_collection_attributes(instance)
+    implicit_json_schema = new
+    implicit_json_schema.classify_attribute_values(instance)
+    implicit_json_schema
+  end
+
   def self.create_from_many(instances)
     return new if instances.blank?
 

@@ -14,9 +14,7 @@ class SchemaGuesser
   end
 
   def classify_collection_attributes(instance)
-    implicit_json_schema = ImplicitJSONSchema.new
-    implicit_json_schema.classify_attribute_values(instance)
-    implicit_json_schema
+    ImplicitJSONSchema.classify_collection_attributes(instance)
   end
 
 end
