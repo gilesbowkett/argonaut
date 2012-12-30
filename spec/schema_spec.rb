@@ -28,7 +28,7 @@ describe "schema guessing" do
   end
 
   it "abstracts a likely schema from an existing element" do
-    generated_schema = Schema.classify_collection_attributes(@goblin_king_category)
+    generated_schema = Schema.extract_from_json(@goblin_king_category)
     generated_schema.attributes.should == @schema.attributes
   end
 end

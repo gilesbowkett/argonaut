@@ -7,7 +7,7 @@ module Argonaut
       parsed = JSONFromAFile.load filename
 
       parsed.each do |schemaless_object|
-        ap Schema.classify_collection_attributes(schemaless_object).attributes
+        ap Schema.extract_from_json(schemaless_object).attributes
       end
     end
 
@@ -16,7 +16,7 @@ module Argonaut
       parsed = JSONFromAFile.load filename
 
       instances = parsed.collect do |parsed_json_object|
-        Schema.classify_collection_attributes(parsed_json_object)
+        Schema.extract_from_json(parsed_json_object)
       end
 
       ap Schema.create_from_many(instances).attributes

@@ -13,7 +13,7 @@ module Argonaut
 
       instances = []
       iterations.times do
-        instances << Schema.classify_collection_attributes(@random_mongo_objects.next)
+        instances << Schema.extract_from_json(@random_mongo_objects.next)
       end
 
       @options = {:schema => Schema.create_from_many(instances),

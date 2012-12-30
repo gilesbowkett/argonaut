@@ -6,7 +6,7 @@ module Argonaut
       @attributes = attributes
     end
 
-    def self.classify_collection_attributes(instance)
+    def self.extract_from_json(instance)
       schema = new
       schema.classify_attribute_values(instance)
       schema

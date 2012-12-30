@@ -43,7 +43,7 @@ module Argonaut
             # be its own method, for readability). so you can't recurse, or at least not
             # elegantly, because @class_name remains the same no matter how many times you call
             # it, and this method is not passing itself into the "recursion." second, the magic
-            # number 1 is here because if you just set it to Fixnum, the #classify_collection_attributes
+            # number 1 is here because if you just set it to Fixnum, the #extract_from_json
             # method will reset that to Class. this code is crazier than the worst stretches of Rails.
             # it's using a Formatter instance variable to track the name of the class which contains
             # the class it is mapping. that means using a Formatter to track the implicit belongs_to
@@ -88,7 +88,7 @@ module Argonaut
             #
             # http://railsoopbook.com/
           key = attribute.to_s.pluralize
-          @stuff_to_create[key] = Schema.classify_collection_attributes(value)
+          @stuff_to_create[key] = Schema.extract_from_json(value)
           @schema.attributes.delete attribute
 
         end
