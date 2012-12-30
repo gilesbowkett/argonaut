@@ -25,13 +25,10 @@ describe "schema guessing" do
       :slug => String,
       :updated_at => OptionalTimestamp
     })
-
-    @parsed_json = ParsedJson.new
-    @schema_guesser = SchemaGuesser.new(@parsed_json)
   end
 
   it "abstracts a likely schema from an existing element" do
-    generated_schema = @schema_guesser.classify_collection_attributes(@goblin_king_category)
+    generated_schema = ImplicitJSONSchema.classify_collection_attributes(@goblin_king_category)
     generated_schema.attributes.should == @implicit_json_schema.attributes
   end
 end

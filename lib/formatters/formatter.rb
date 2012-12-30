@@ -27,15 +27,13 @@ class Formatter
     @stuff_to_create = {@class_name => @schema}
     @schema.attributes.each do |attribute, value|
       if [BSON::OrderedHash, Hash].include?(value.class)
-        schema_guesser = SchemaGuesser.new # FIXME: singleton!
-        # FIXME: make classify_etc a class method instead of instance?
         value["#{@class_name.to_s.singularize}_id"] = 1
           # FIXME: first, tying it directly to the @class_name means you can't recurse,
           # or at least not elegantly. second, the magic number 1 is here because if
           # you just set it to Fixnum, #classify_collection_attributes() will reset that
           # to Class.
         key = attribute.to_s.pluralize
-        @stuff_to_create[key] = schema_guesser.classify_collection_attributes(value)
+        @stuff_to_create[key] = ImplicitJSONSchema.classify_collection_attributes(value)
         @schema.attributes.delete attribute
       end
     end

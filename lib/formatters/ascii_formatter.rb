@@ -26,9 +26,7 @@ class AsciiFormatter < Formatter
       output += line(attribute, value)
 
       if value.class == BSON::OrderedHash # Mongo object
-        schema_guesser = SchemaGuesser.new # FIXME: singleton?
-        # FIXME: make classify_etc a class method instead of instance?
-        options = {:schema => schema_guesser.classify_collection_attributes(value),
+        options = {:schema => ImplicitJSONSchema.classify_collection_attributes(value),
                    :class_name => attribute,
                    :indents => @indents + 2}
         recurse_baby_recurse = AsciiFormatter.new(options)
