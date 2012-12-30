@@ -6,7 +6,7 @@ class FileSystemAnalyzer
     parsed = JSONFromAFile.load filename
 
     parsed.each do |schemaless_object|
-      ap ImplicitJSONSchema.classify_collection_attributes(schemaless_object).attributes
+      ap Schema.classify_collection_attributes(schemaless_object).attributes
     end
   end
 
@@ -15,10 +15,10 @@ class FileSystemAnalyzer
     parsed = JSONFromAFile.load filename
 
     instances = parsed.collect do |parsed_json_object|
-      ImplicitJSONSchema.classify_collection_attributes(parsed_json_object)
+      Schema.classify_collection_attributes(parsed_json_object)
     end
 
-    ap ImplicitJSONSchema.create_from_many(instances).attributes
+    ap Schema.create_from_many(instances).attributes
   end
 
 end

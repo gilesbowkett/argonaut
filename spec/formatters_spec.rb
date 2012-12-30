@@ -8,7 +8,7 @@ describe Formatter do
       @class_name = "salsas"
       @embedded = BSON::OrderedHash.new
       @embedded["description"] = "jalapeno, mango, red onion, garlic, lime"
-      @schema = ImplicitJSONSchema.new({
+      @schema = Schema.new({
         "name" => String,
         "detail" => @embedded
       })
@@ -139,7 +139,7 @@ SIMPLE_TRANSLATOR
       # regular Hash syntax. please correct me if I'm wrong on this because it
       # looks like ass. PS: I kind of hate Mongo.
 
-      @salsa_schema = ImplicitJSONSchema.new({
+      @salsa_schema = Schema.new({
         :_keywords => Array,
         :mongo_id => String,
         :active => Boolean,

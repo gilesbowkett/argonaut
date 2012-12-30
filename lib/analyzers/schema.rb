@@ -1,4 +1,4 @@
-class ImplicitJSONSchema
+class Schema
 
   attr_accessor :attributes
   def initialize(attributes = {})
@@ -6,9 +6,9 @@ class ImplicitJSONSchema
   end
 
   def self.classify_collection_attributes(instance)
-    implicit_json_schema = new
-    implicit_json_schema.classify_attribute_values(instance)
-    implicit_json_schema
+    schema = new
+    schema.classify_attribute_values(instance)
+    schema
   end
 
   def self.create_from_many(instances)
@@ -27,7 +27,7 @@ class ImplicitJSONSchema
 
     # input can be a Hash or a thing which has a Hash
     other_attributes = case other_schema
-      when ImplicitJSONSchema
+      when Schema
         other_schema.attributes
       when Hash
         other_schema

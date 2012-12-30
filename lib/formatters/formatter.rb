@@ -5,7 +5,7 @@ class Formatter
   # hash, and identify stuff the formatter will need to create.
   #
   # options - an ActiveRecord-y options hash
-  # options[:schema] - an ImplicitJSONSchema for the JSON object type
+  # options[:schema] - a Schema for the JSON object type
   # options[:class_name] - a String naming the JSON object type
   # options[:indents] - spaces to indent the output
   #
@@ -87,7 +87,7 @@ class Formatter
           #
           # http://railsoopbook.com/
         key = attribute.to_s.pluralize
-        @stuff_to_create[key] = ImplicitJSONSchema.classify_collection_attributes(value)
+        @stuff_to_create[key] = Schema.classify_collection_attributes(value)
         @schema.attributes.delete attribute
 
       end

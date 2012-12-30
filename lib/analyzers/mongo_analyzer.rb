@@ -12,10 +12,10 @@ class MongoAnalyzer
 
     instances = []
     iterations.times do
-      instances << ImplicitJSONSchema.classify_collection_attributes(@random_mongo_objects.next)
+      instances << Schema.classify_collection_attributes(@random_mongo_objects.next)
     end
 
-    @options = {:schema => ImplicitJSONSchema.create_from_many(instances),
+    @options = {:schema => Schema.create_from_many(instances),
                 :class_name => @collection}
   end
 

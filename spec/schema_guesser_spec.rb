@@ -15,7 +15,7 @@ describe "schema guessing" do
                      "updated_at" => Time.now
                    }
 
-    @implicit_json_schema = ImplicitJSONSchema.new({
+    @schema = Schema.new({
       :mongo_id => BSON::ObjectId,
       :muppet_ids => ArrayOfMongoIds,
       :muppet_fan_user_ids => ArrayOfMongoIds,
@@ -28,8 +28,8 @@ describe "schema guessing" do
   end
 
   it "abstracts a likely schema from an existing element" do
-    generated_schema = ImplicitJSONSchema.classify_collection_attributes(@goblin_king_category)
-    generated_schema.attributes.should == @implicit_json_schema.attributes
+    generated_schema = Schema.classify_collection_attributes(@goblin_king_category)
+    generated_schema.attributes.should == @schema.attributes
   end
 end
 

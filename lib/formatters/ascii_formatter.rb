@@ -26,7 +26,7 @@ class AsciiFormatter < Formatter
       output += line(attribute, value)
 
       if value.class == BSON::OrderedHash # Mongo object
-        options = {:schema => ImplicitJSONSchema.classify_collection_attributes(value),
+        options = {:schema => Schema.classify_collection_attributes(value),
                    :class_name => attribute,
                    :indents => @indents + 2}
         recurse_baby_recurse = AsciiFormatter.new(options)
