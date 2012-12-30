@@ -5,6 +5,9 @@ class Formatter
   # hash, and identify stuff the formatter will need to create.
   #
   # options - an ActiveRecord-y options hash
+  # options[:schema] - an ImplicitJSONSchema for the JSON object type
+  # options[:class_name] - a String naming the JSON object type
+  # options[:indents] - spaces to indent the output
   #
   # Formatter.new(:schema => @listing_schema, :class_name => 'listing')
   # # => returns a Formatter
