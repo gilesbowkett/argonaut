@@ -64,7 +64,9 @@ class ImplicitJSONSchema
   # recursive on that ass and find out what the schema is for that
   # embedded Mongo object.
   #
-  # attributes_and_values - a Hash. usually a Mongo object from Mongomatic
+  # attributes_and_values - a Hash representing JSON from JSON.parse,
+  #                         or a BSON::OrderedHash representing JSON
+  #                         from Mongo via Mongomatic
   #
   def classify_attribute_value(attributes_and_values)
     raise "collection might be empty" unless attributes_and_values
