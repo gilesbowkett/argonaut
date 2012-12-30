@@ -135,14 +135,6 @@ describe ImplicitJSONSchema do
         @schema1.attributes.should == {:name => String}
       end
     end
-
-    it "reports irreconcilable conflicts" do
-      @schema1 = ImplicitJSONSchema.new({:name => String})
-      @schema2 = ImplicitJSONSchema.new({:name => Boolean})
-
-      mismatch = "error: schemas don't match on attribute name"
-      (lambda {@schema1.merge(@schema2)}).should raise_error mismatch
-    end
   end
 
   context "building from multiple instances" do
