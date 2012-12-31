@@ -198,8 +198,6 @@ COMPLEX_MIGRATION
         @migration_formatter.format.should == @complex_migration
     end
 
-    it "accomodates arrays of mongo ids in the migrations somehow"
-
     describe TranslatorModelFormatter do
       before do
         @translator_formatter = TranslatorModelFormatter.new(:schema => @salsa_schema,

@@ -35,18 +35,27 @@ describe "schema guessing" do
     generated_schema.attributes.should == @schema.attributes
   end
 
-  it "belongs to another Schema" do
-    owned_schema = Schema.new
-    owned_schema.belongs_to @schema
-    owned_schema.parent_schema.should == @schema
+  describe "extracting nested schemas" do
+    before do
+      nested = {"foo" => "bar", "baz" => {"qu" => "ux"}}
+      @extracted = Schema.extract_from_json(nested) # it's really extract_from_tree FIXME
+    end
+
+    it "deduces schemas contained within schemas" do
+      @extracted.attributes[:baz].should be_instance_of Schema
+    end
+
+    it "assigns belongs_to correctly when recursively analyzing schemas" do
+      @extracted.attributes[:baz].parent_schema.should == @extracted
+    end
   end
 
-  it "deduces schemas contained within schemas" do
-    nested = {"foo" => "bar", "baz" => {"qu" => "ux"}}
-    extracted = Schema.extract_from_json(nested) # it's really extract_from_tree
-    extracted.attributes[:baz].should be_instance_of Schema
+  it "takes recursive schemas to any arbitrary depth" do
+    # a true spec for this requirement would randomize depth and run flawlessly regardless.
+    # it would be awesome to write that, but not a huge priority at the moment.
+    very_nested = {"first_level" => {"second_level" => {"deep_key" => "deep_value"}}}
+    @extracted = Schema.extract_from_json(very_nested) # it's really extract_from_tree FIXME
+    @extracted.attributes[:first_level].attributes[:second_level].should be_instance_of Schema
   end
-
-  it "assigns belongs_to correctly when recursively analyzing schemas"
 end
 

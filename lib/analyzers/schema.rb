@@ -90,7 +90,7 @@ module Argonaut
           when NilClass, BSON::OrderedHash
             value
           when Hash
-            Schema.extract_from_json(value, attribute)
+            Schema.extract_from_json(value, self)
           else
             value.class
         end
