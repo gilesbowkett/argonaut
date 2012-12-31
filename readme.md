@@ -14,14 +14,19 @@ how to analyze a flat file of json with argonaut
 
 `brake argonaut:filesystem:analyze["whatever.json"]`
 
-This is UNFINISHED. Don't even fuck with it.
+This is unfinished. It produces accurate schemas of arbitrarily nested JSON objects, but they look messy, and I don't currently do anything to reconcile differences in subtree schemas. In other words, given two trees:
+
+    1. {foo: "bar", baz: {qu: "ux"}}
+    2. {foo: 123, baz: {quux: "quux"}}
+
+The code will notice that `foo` lacks a consistent data type, but not that `baz` does. (I think.) It will also trigger very many errors which mention schema inconsistency, but which, in my opinion, do not actually come from schema inconsistency. (Irony.) 
 
 wtf task
 --------
 
 `brake argonaut:filesystem:wtf["whatever.json"]`
 
-This will screendump ongoing object-by-object analyses. These analyses are imperfect and the point of the task is to debug them. Starting to disappear, replaced by tests.
+This will screendump ongoing object-by-object analyses. Debugging tool. Starting to disappear, replaced by tests.
 
 what's an argonaut? is that some kind of ice cream?
 ---------------------------------------------------
@@ -31,10 +36,9 @@ http://en.wikipedia.org/wiki/Argonauts
 mongo.yml
 ---------
 
-currently this code assumes you want to read JSON from Mongo. hoping to change that!
+originally this code assumed users want to read JSON from Mongo.
 
-but for now, to specify Mongo credentials, put a file called `mongo.yml` at your
-top level.
+no longer the focus of the codebase, but, if you want to specify Mongo credentials, use a file called `mongo.yml`.
 
 for instance, if you keep your mangos in Mongo, here's what that file might look like:
 
@@ -44,7 +48,7 @@ for instance, if you keep your mangos in Mongo, here's what that file might look
     user: mangofan12345
     password: p4ssw0rd
 
-note that if your file looks exactly like this then your project is doomed.
+(note that if your file looks exactly like this then your project is doomed.)
 
 mongo rake tasks
 ----------------
@@ -74,7 +78,7 @@ MIT license.
 contributing
 ------------
 
-For the next few weeks, you're way better off sending me an email or a tweet than using GitHub's built-in messaging systems, even pull requests, awesome though they are. Apologies!
+For the next few weeks, for reasons that I hope will later become obvious, you're way better off sending me an email or a tweet than using GitHub's built-in messaging systems, even pull requests, awesome though they are. Apologies!
 
 How you can reach me:
 
