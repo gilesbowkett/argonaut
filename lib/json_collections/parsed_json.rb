@@ -1,5 +1,5 @@
 module Argonaut
-  class ParsedJson < Array # FIXME: unused class?
+  class ParsedJson < Array
     alias :next :pop
   end
 end
