@@ -16,7 +16,8 @@ module Argonaut
     end
 
     # Internal - this overrides the superclass version to do nothing. I wrote this formatter before the
-    # other ones, and implemented this same functionality inside format.
+    # other ones, and implemented this same functionality inside format. FIXME: I don't understand the
+    # immediate preceding comment, but I can tell it's a mistake.
     def identify_stuff_to_create
     end
 

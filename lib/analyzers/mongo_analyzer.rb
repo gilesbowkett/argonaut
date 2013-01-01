@@ -1,3 +1,5 @@
+# FIXME: write some specs! (this file was refactored from a rake task)
+
 module Argonaut
   class MongoAnalyzer
 
