@@ -23,6 +23,7 @@ describe Schema do
     @schema.attributes.should == {:muppet_fan_user_ids => Array}
   end
   it "classifies Mongo ID arrays when the array's empty and named *_ids" do
+    # FIXME: this is useful for Mongo but not for any other source of JSON
     @schema.classify_attribute_value("muppet_ids" => [])
     @schema.attributes.should == {:muppet_ids => ArrayOfMongoIds}
   end
