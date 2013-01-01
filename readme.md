@@ -1,13 +1,16 @@
 argonaut: because it helps you ship json
 ========================================
 
-Argonaut analyzes Mongo collections and describes their contents for you. It's basically `DESCRIBE TABLE` for Mongo.
+Argonaut analyzes collections of JSON data and describes their contents for you. It started life as `DESCRIBE TABLE` for Mongo, and now also supports JSON from flat files.
 
 You might use it if you're facing a large Mongo collection and you want to find out what the data looks like overall. Schemaless data stores give you no guarantees about how best to model them, or what data they contain, and that's information you might want to have.
 
-Likewise, API clients need to use domain logic which corresponds to whatever their app's about. Argonaut gives you an easy way to diagram (in code) the structure of any JSON APIs you consume.
+Likewise, API clients need to use domain logic which corresponds to whatever their app's about. Tightly coupling the design of your application to the design of an API which your application consumes is, in my opinion, a mistake. Argonaut gives you an easy way to map the structure of any JSON APIs you consume, and make informed decisions about how you consume them.
 
-So I'm starting to transform this from a `DESCRIBE TABLE` for Mongo into a `DESCRIBE TABLE` for JSON.
+work in progress
+----------------
+
+This is very much alpha software in pre-release condition. It's extracted from production code, but the extraction's unfinished and I've changed the scope of the project. The specs are a work in progress as well.
 
 how to analyze a flat file of json with argonaut
 ------------------------------------------------
