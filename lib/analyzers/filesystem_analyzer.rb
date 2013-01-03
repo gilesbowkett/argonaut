@@ -5,8 +5,12 @@ module Argonaut
     # FIXME: maybe just FileAnalyzer? less pretentious, shorter, more accurate,
     # and allows me to attr_accessor :filename. it is an arg in literally every method, after all.
 
+    def initialize(filename)
+      @filename = filename
+    end
+
     def partially_analyzed_schemas
-      JSONFromAFile.load(self.filename).collect do |schemaless_object|
+      JSONFromAFile.load(@filename).collect do |schemaless_object|
         Schema.extract_from_json(schemaless_object)
       end
     end
@@ -20,7 +24,7 @@ module Argonaut
     # for some reason the analysis is not recursing FIXME
     # it's supposed to merge/summarize all individual schemas >.<
     def broken_analyze_method_wtf
-      parsed = JSONFromAFile.load(self.filename)
+      parsed = JSONFromAFile.load(@filename)
 
       instances = parsed.collect do |parsed_json_object|
         Schema.extract_from_json(parsed_json_object)
