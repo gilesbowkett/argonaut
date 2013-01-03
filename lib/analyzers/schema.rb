@@ -25,6 +25,8 @@ module Argonaut
 
     def belongs_to(parent_schema)
       @parent_schema = parent_schema
+      # @parent_schema.child_schemas << schema ????
+      # might be useful later. FIXME: decide.
     end
 
     # FIXME: this class often seems like it decorates Hash but should just
@@ -50,6 +52,8 @@ module Argonaut
         # warn if both schema ascribe different data types to the same attribute
         if @attributes[attribute] && value != @attributes[attribute]
           ap "WARNING: schemas don't match on attribute #{attribute}"
+          # FIXME: this has always been a problem. this code should do something different,
+          # but I don't know what yet.
         end
       end
 
