@@ -11,6 +11,7 @@ end
 
 require 'active_support/all'
 
+# FIXME: ugh
 require File.here "/../lib/data_types/array"
 require File.here "/../lib/data_types/array_of_mongo_ids"
 require File.here "/../lib/data_types/array_of_mongo_objects"
@@ -24,6 +25,8 @@ require File.here "/../lib/data_types/bson_object_id"
 require File.here "/../lib/data_types/bson_ordered_hash"
 
 require File.here "/../lib/analyzers/schema"
+require File.here "/../lib/analyzers/file_analyzer"
+require File.here "/../lib/analyzers/mongo_analyzer"
 
 require File.here "/../lib/json_collections/random_mongo_objects"
 require File.here "/../lib/json_collections/parsed_json"

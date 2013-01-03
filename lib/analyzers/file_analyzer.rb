@@ -1,8 +1,7 @@
 # FIXME: write some specs! (this file was refactored from a rake task)
 
 module Argonaut
-  class FileSystemAnalyzer < Struct.new(:filename)
-    # FIXME: maybe just FileAnalyzer? less pretentious, shorter, more accurate
+  class FileAnalyzer < Struct.new(:filename)
 
     def initialize(filename)
       @filename = filename
