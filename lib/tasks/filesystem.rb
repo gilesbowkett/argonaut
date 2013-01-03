@@ -10,7 +10,7 @@ namespace :argonaut do
     desc "this shows you partially-analyzed schemas"
     task :wtf, [:filename] do |task, args|
       @filesystem_analyzer = Argonaut::FileSystemAnalyzer.new(args[:filename])
-      @filesystem_analyzer.show_me_partially_analyzed_schemas
+      @filesystem_analyzer.schemas
     end
 
   end
