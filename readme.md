@@ -43,7 +43,7 @@ originally this code assumed users want to read JSON from Mongo.
 
 no longer the focus of the codebase, but, if you want to specify Mongo credentials, use a file called `mongo.yml`.
 
-for instance, if you keep your mangos in Mongo, here's what that file might look like:
+for instance, if you run a social network about tropical fruit, and you decided to keep your mangos in Mongo, here's what that file might look like:
 
     host: mongodb.example.com
     port: 12345
